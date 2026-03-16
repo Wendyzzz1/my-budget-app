@@ -10,24 +10,17 @@
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
     body { min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "PingFang SC", "Microsoft YaHei", sans-serif; background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%); color: var(--text-main); display: flex; justify-content: center; }
     .app { width: 100%; max-width: 480px; padding: 16px 16px 48px; display: flex; flex-direction: column; gap: 14px; }
-
     .header { padding: 4px 2px; }
     .title { font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
     .pill { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.25); color: var(--text-sub); }
     .today { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
-
     .card { background: radial-gradient(circle at top left, #111827 0, #020617 55%); border-radius: var(--radius-lg); padding: 16px; border: 1px solid rgba(31,41,55,0.9); }
     .section-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text-main); display: flex; justify-content: space-between; align-items: center; }
-
-    /* 总资产 */
     .total-assets { font-size: 11px; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
     .total-value { font-size: 36px; font-weight: 700; color: var(--text-main); margin-bottom: 16px; }
-
-    /* 三账户 */
     .accounts-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-    .account-card { background: rgba(15,23,42,0.9); border-radius: var(--radius-md); padding: 12px 10px; display: flex; flex-direction: column; gap: 5px; cursor: pointer; transition: opacity 0.15s; }
-    .account-card:active { opacity: 0.7; }
-    .account-card.spend  { border: 1px solid rgba(248,113,113,0.5); }
+    .account-card { background: rgba(15,23,42,0.9); border-radius: var(--radius-md); padding: 12px 10px; display: flex; flex-direction: column; gap: 5px; }
+    .account-card.spend { border: 1px solid rgba(248,113,113,0.5); }
     .account-card.reserve { border: 1px solid rgba(96,165,250,0.5); }
     .account-card.growth { border: 1px solid rgba(34,197,94,0.5); }
     .account-label { font-size: 10px; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.06em; }
@@ -40,31 +33,25 @@
     .account-delta.pos { color: #4ade80; }
     .account-delta.zero { color: var(--text-sub); }
     .edit-btn { font-size: 10px; color: var(--text-sub); background: transparent; border: 1px solid rgba(148,163,184,0.25); border-radius: 999px; padding: 2px 7px; cursor: pointer; align-self: flex-start; margin-top: 2px; }
-
-    /* month nav */
     .month-nav { display: flex; align-items: center; gap: 6px; }
     .nav-btn { background: transparent; border: 1px solid rgba(148,163,184,0.3); border-radius: 999px; color: var(--text-sub); font-size: 16px; width: 26px; height: 26px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-
-    /* form */
     .tab-group { display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(17,24,39,0.85); border: 1px solid rgba(55,65,81,1); gap: 3px; }
     .tab { border-radius: 999px; padding: 4px 12px; font-size: 12px; border: none; background: transparent; color: var(--text-sub); cursor: pointer; }
     .tab.-active { background: linear-gradient(135deg,#22c55e,#4ade80); color: #022c22; font-weight: 600; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
-    .form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px; }
     .form-row { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
     label { font-size: 12px; color: var(--text-sub); }
-    input[type="number"], input[type="text"], input[type="date"], select {
-      width: 100%; border-radius: 999px; border: 1px solid var(--border); padding: 9px 14px; font-size: 13px; outline: none; color: var(--text-main); background: rgba(2,6,23,0.9);
-    }
-    input[type="text"] { border-radius: 12px; }
-    input[type="date"] { border-radius: 12px; color-scheme: dark; }
+    input[type="number"], input[type="text"], input[type="date"], select { width: 100%; border-radius: 999px; border: 1px solid var(--border); padding: 9px 14px; font-size: 13px; outline: none; color: var(--text-main); background: rgba(2,6,23,0.9); }
+    input[type="text"], input[type="date"] { border-radius: 12px; }
+    input[type="date"] { color-scheme: dark; }
     input::placeholder { color: #4b5563; }
     input:focus, select:focus { border-color: rgba(34,197,94,0.9); }
     select { appearance: none; background-image: linear-gradient(45deg,transparent 50%,#6b7280 50%), linear-gradient(135deg,#6b7280 50%,transparent 50%); background-position: calc(100% - 14px) 12px, calc(100% - 10px) 12px; background-size: 4px 4px; background-repeat: no-repeat; background-color: rgba(2,6,23,0.9); }
     .btn-primary { width: 100%; border-radius: 999px; border: none; padding: 11px 14px; font-size: 15px; font-weight: 600; background: linear-gradient(135deg,#22c55e,#4ade80); color: #022c22; cursor: pointer; margin-top: 4px; }
     .btn-primary:active { transform: scale(0.98); }
-
-    /* txn list */
+    .sync-status { font-size: 11px; color: var(--text-sub); text-align: center; margin-top: 8px; min-height: 16px; }
+    .sync-status.ok { color: #4ade80; }
+    .sync-status.err { color: #fb7185; }
     .txn-list { display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto; padding-right: 2px; }
     .txn-list::-webkit-scrollbar { width: 4px; }
     .txn-list::-webkit-scrollbar-thumb { background: rgba(55,65,81,0.8); border-radius: 999px; }
@@ -86,22 +73,17 @@
     .del-btn { font-size: 10px; color: #4b5563; background: transparent; border: none; cursor: pointer; padding: 0; }
     .del-btn:hover { color: #fb7185; }
     .empty { font-size: 13px; color: var(--text-sub); text-align: center; padding: 16px 0; }
-
-    /* export */
     .export-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; border-radius: 999px; border: 1px solid rgba(148,163,184,0.3); padding: 9px 14px; font-size: 13px; font-weight: 500; color: var(--text-sub); background: transparent; cursor: pointer; margin-top: 12px; }
-    .export-btn:active { background: rgba(255,255,255,0.05); }
-
     .footer { margin-top: 8px; font-size: 10px; text-align: center; color: #4b5563; }
   </style>
 </head>
 <body>
 <div class="app">
   <header class="header">
-    <div class="title">记账本 <span class="pill">本地保存</span></div>
+    <div class="title">记账本 <span class="pill" id="syncPill">同步中…</span></div>
     <div class="today" id="todayText"></div>
   </header>
 
-  <!-- 总资产 + 三账户 -->
   <section class="card">
     <div class="total-assets">Total Assets</div>
     <div class="total-value" id="totalAssets">—</div>
@@ -127,7 +109,6 @@
     </div>
   </section>
 
-  <!-- 记一笔 -->
   <section class="card">
     <div class="section-title">
       <span>记一笔</span>
@@ -164,10 +145,10 @@
       <label>备注（可选）</label>
       <input type="text" id="noteInput" maxlength="40" placeholder="午餐 / 房租 / 工资…" />
     </div>
-    <button class="btn-primary" onclick="addEntry()">保存记录</button>
+    <button class="btn-primary" id="saveBtn" onclick="addEntry()">保存记录</button>
+    <div class="sync-status" id="syncStatus"></div>
   </section>
 
-  <!-- 月度账单 -->
   <section class="card">
     <div class="section-title">
       <span id="monthLabel"></span>
@@ -180,20 +161,43 @@
     <button class="export-btn" onclick="exportCSV()">↓ 导出本月账单 (.csv)</button>
   </section>
 
-  <footer class="footer">数据仅保存在本机浏览器 · 可离线使用</footer>
+  <footer class="footer">数据同步至云端 · 换设备不丢失</footer>
 </div>
 
 <script>
 (function() {
-  const KEY = 'budget-app-v4';
+  const SUPABASE_URL = 'https://zvxiaxfozujaqbsxvlcv.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_P9IIZ-8wf0ymYYpfKwo3Qg_fwUdelAs';
+  const HEADERS = { 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY };
+
   const EXPENSE_CATS = ['餐饮','交通','娱乐','购物','医疗','学习','订阅','房租','转账','其他'];
   const INCOME_CATS = ['工资','报销','转入','其他'];
-  let state = { accounts: { spend: null, reserve: null, growth: null }, transactions: [] };
+
+  let accounts = { spend: null, reserve: null, growth: null };
+  let transactions = [];
   let currentType = 'expense';
   let viewDate = new Date();
 
-  function load() { try { const r = localStorage.getItem(KEY); if (r) state = JSON.parse(r); } catch(e) {} }
-  function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+  // --- Supabase API ---
+  async function sbGet(table, params='') {
+    const r = await fetch(SUPABASE_URL+'/rest/v1/'+table+'?'+params, { headers: { ...HEADERS, 'Prefer': 'return=representation' } });
+    return r.json();
+  }
+  async function sbInsert(table, data) {
+    const r = await fetch(SUPABASE_URL+'/rest/v1/'+table, { method:'POST', headers: { ...HEADERS, 'Prefer': 'return=representation' }, body: JSON.stringify(data) });
+    return r.json();
+  }
+  async function sbUpdate(table, match, data) {
+    const params = Object.entries(match).map(([k,v])=>k+'=eq.'+encodeURIComponent(v)).join('&');
+    const r = await fetch(SUPABASE_URL+'/rest/v1/'+table+'?'+params, { method:'PATCH', headers: { ...HEADERS, 'Prefer': 'return=representation' }, body: JSON.stringify(data) });
+    return r.json();
+  }
+  async function sbDelete(table, match) {
+    const params = Object.entries(match).map(([k,v])=>k+'=eq.'+encodeURIComponent(v)).join('&');
+    await fetch(SUPABASE_URL+'/rest/v1/'+table+'?'+params, { method:'DELETE', headers: HEADERS });
+  }
+
+  // --- Helpers ---
   function monthKey(d) { return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0'); }
   function fmt(n) {
     if (n === null || n === undefined) return '—';
@@ -204,7 +208,18 @@
     const abs = '$' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
     return n > 0 ? '本月 +' + abs : '本月 -' + abs;
   }
+  function setPill(text, color) {
+    const p = document.getElementById('syncPill');
+    p.textContent = text;
+    p.style.color = color || '';
+  }
+  function setStatus(text, cls) {
+    const el = document.getElementById('syncStatus');
+    el.textContent = text;
+    el.className = 'sync-status' + (cls ? ' '+cls : '');
+  }
 
+  // --- Render ---
   function renderHeader() {
     const d = new Date();
     const days = ['日','一','二','三','四','五','六'];
@@ -214,7 +229,7 @@
 
   function getMonthDeltas(mk) {
     const deltas = { spend: 0, reserve: 0, growth: 0 };
-    state.transactions.filter(t => t.date && t.date.startsWith(mk)).forEach(t => {
+    transactions.filter(t => t.date && t.date.startsWith(mk)).forEach(t => {
       if (!deltas.hasOwnProperty(t.account)) return;
       deltas[t.account] += t.type === 'income' ? t.amount : -t.amount;
     });
@@ -224,35 +239,17 @@
   function renderAccounts() {
     const mk = monthKey(new Date());
     const deltas = getMonthDeltas(mk);
-    let total = 0;
+    let total = 0; let allSet = true;
     ['spend','reserve','growth'].forEach(k => {
-      const amt = state.accounts[k];
+      const amt = accounts[k];
       document.getElementById('amt-'+k).textContent = fmt(amt);
-      if (amt !== null && amt !== undefined) total += amt;
+      if (amt !== null && amt !== undefined) total += amt; else allSet = false;
       const d = deltas[k];
       const el = document.getElementById('delta-'+k);
       el.textContent = fmtDelta(d);
       el.className = 'account-delta ' + (d > 0 ? 'pos' : d < 0 ? 'neg' : 'zero');
     });
-    const allSet = ['spend','reserve','growth'].every(k => state.accounts[k] !== null && state.accounts[k] !== undefined);
     document.getElementById('totalAssets').textContent = allSet ? fmt(total) : '—';
-  }
-
-  window.editAccount = function(key) {
-    const cur = state.accounts[key];
-    const label = {spend:'Spend',reserve:'Reserve',growth:'Growth'}[key];
-    const val = prompt(label + ' 账户余额 ($)\n（手动更新，不影响交易记录）', cur !== null && cur !== undefined ? cur : '');
-    if (val === null) return;
-    const n = parseFloat(val.replace(/,/g,''));
-    if (!isFinite(n)) { alert('请输入有效数字'); return; }
-    state.accounts[key] = n;
-    save();
-    renderAccounts();
-  };
-
-  function getMonthTxns() {
-    const key = monthKey(viewDate);
-    return state.transactions.filter(t => t.date && t.date.startsWith(key));
   }
 
   function renderMonthLabel() {
@@ -260,14 +257,18 @@
     document.getElementById('monthLabel').textContent = viewDate.getFullYear() + ' · ' + months[viewDate.getMonth()] + ' 账单';
   }
 
+  function getMonthTxns() {
+    const key = monthKey(viewDate);
+    return transactions.filter(t => t.date && t.date.startsWith(key));
+  }
+
   function renderTxns() {
     const txns = getMonthTxns().slice().sort((a,b) => b.date.localeCompare(a.date));
     const list = document.getElementById('txnList');
     if (!txns.length) { list.innerHTML = '<div class="empty">本月暂无记录</div>'; return; }
     list.innerHTML = txns.map(t => {
-      const dateStr = t.date.slice(0,10);
-      const sign = t.type === 'income' ? '+' : '-';
       const accLabel = {spend:'Spend',reserve:'Reserve',growth:'Growth'}[t.account] || t.account;
+      const sign = t.type === 'income' ? '+' : '-';
       return `<div class="txn-item">
         <div class="txn-left">
           <div class="txn-tags">
@@ -276,7 +277,7 @@
             <span class="badge" style="border-color:rgba(148,163,184,0.3);color:var(--text-sub);">${t.category}</span>
           </div>
           <div class="txn-note">${t.note || '无备注'}</div>
-          <div class="txn-date">${dateStr}</div>
+          <div class="txn-date">${t.date}</div>
         </div>
         <div class="txn-right">
           <div class="txn-amount -${t.type}">${sign}${fmt(t.amount)}</div>
@@ -294,12 +295,44 @@
     document.getElementById('accountLabel').textContent = currentType === 'expense' ? '从哪个账户' : '存入哪个账户';
   }
 
+  // --- Load data ---
+  async function loadAll() {
+    try {
+      setPill('同步中…');
+      const [accs, txns] = await Promise.all([
+        sbGet('accounts', 'select=key,balance'),
+        sbGet('transactions', 'select=*&order=date.desc')
+      ]);
+      if (Array.isArray(accs)) accs.forEach(a => { accounts[a.key] = a.balance; });
+      if (Array.isArray(txns)) transactions = txns;
+      renderAll();
+      setPill('已同步', '#4ade80');
+    } catch(e) {
+      setPill('离线', '#fb7185');
+    }
+  }
+
+  // --- Actions ---
+  window.editAccount = async function(key) {
+    const cur = accounts[key];
+    const label = {spend:'Spend',reserve:'Reserve',growth:'Growth'}[key];
+    const val = prompt(label + ' 账户余额 ($)', cur !== null && cur !== undefined ? cur : '');
+    if (val === null) return;
+    const n = parseFloat(val.replace(/,/g,''));
+    if (!isFinite(n)) { alert('请输入有效数字'); return; }
+    accounts[key] = n;
+    renderAccounts();
+    try {
+      await sbUpdate('accounts', {key}, {balance: n});
+    } catch(e) { alert('同步失败，请检查网络'); }
+  };
+
   window.changeMonth = function(dir) {
     viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + dir, 1);
     renderMonthLabel(); renderTxns();
   };
 
-  window.addEntry = function() {
+  window.addEntry = async function() {
     const amt = parseFloat(document.getElementById('amountInput').value);
     if (!isFinite(amt) || amt <= 0) { alert('请输入大于0的金额'); return; }
     const dateVal = document.getElementById('dateInput').value;
@@ -308,70 +341,71 @@
     const account = document.getElementById('accountSelect').value;
     const note = document.getElementById('noteInput').value.trim();
 
-    // update account balance
-    if (state.accounts[account] !== null && state.accounts[account] !== undefined) {
-      state.accounts[account] += currentType === 'income' ? amt : -amt;
-    }
+    const newBal = (accounts[account] !== null && accounts[account] !== undefined)
+      ? accounts[account] + (currentType === 'income' ? amt : -amt)
+      : null;
 
-    state.transactions.push({
+    const txn = {
       id: Date.now().toString(36) + Math.random().toString(36).slice(2,5),
-      type: currentType,
-      amount: amt,
-      category: cat,
-      account,
-      note,
-      date: dateVal
-    });
-    save();
-    document.getElementById('amountInput').value = '';
-    document.getElementById('noteInput').value = '';
-    viewDate = new Date();
-    renderAll();
+      type: currentType, amount: amt, category: cat, account, note, date: dateVal
+    };
+
+    document.getElementById('saveBtn').disabled = true;
+    setStatus('保存中…');
+    try {
+      await sbInsert('transactions', txn);
+      if (newBal !== null) await sbUpdate('accounts', {key: account}, {balance: newBal});
+      transactions.unshift(txn);
+      if (newBal !== null) accounts[account] = newBal;
+      document.getElementById('amountInput').value = '';
+      document.getElementById('noteInput').value = '';
+      viewDate = new Date();
+      renderAll();
+      setStatus('已保存 ✓', 'ok');
+      setTimeout(() => setStatus(''), 2000);
+    } catch(e) {
+      setStatus('保存失败，请检查网络', 'err');
+    }
+    document.getElementById('saveBtn').disabled = false;
   };
 
-  window.deleteEntry = function(id) {
+  window.deleteEntry = async function(id) {
     if (!confirm('删除这条记录？')) return;
-    const t = state.transactions.find(x => x.id === id);
-    if (t) {
-      // reverse account effect
-      if (state.accounts[t.account] !== null && state.accounts[t.account] !== undefined) {
-        state.accounts[t.account] += t.type === 'income' ? -t.amount : t.amount;
-      }
-      state.transactions = state.transactions.filter(x => x.id !== id);
-      save();
+    const t = transactions.find(x => x.id === id);
+    if (!t) return;
+    const newBal = (accounts[t.account] !== null && accounts[t.account] !== undefined)
+      ? accounts[t.account] + (t.type === 'income' ? -t.amount : t.amount)
+      : null;
+    try {
+      await sbDelete('transactions', {id});
+      if (newBal !== null) await sbUpdate('accounts', {key: t.account}, {balance: newBal});
+      transactions = transactions.filter(x => x.id !== id);
+      if (newBal !== null) accounts[t.account] = newBal;
       renderAll();
-    }
+    } catch(e) { alert('删除失败，请检查网络'); }
   };
 
   window.exportCSV = function() {
     const txns = getMonthTxns().slice().sort((a,b) => a.date.localeCompare(b.date));
     if (!txns.length) { alert('本月暂无记录'); return; }
     const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const mLabel = months[viewDate.getMonth()] + ' ' + viewDate.getFullYear();
+    const mLabel = months[viewDate.getMonth()] + '-' + viewDate.getFullYear();
     const rows = [['Date','Type','Account','Category','Amount','Note']];
-    txns.forEach(t => {
-      rows.push([
-        t.date,
-        t.type === 'expense' ? 'Expense' : 'Income',
-        {spend:'Spend',reserve:'Reserve',growth:'Growth'}[t.account] || t.account,
-        t.category,
-        (t.type === 'expense' ? '-' : '+') + t.amount.toFixed(2),
-        t.note || ''
-      ]);
-    });
-    // summary rows
-    const exp = txns.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
-    const inc = txns.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
-    rows.push([]);
-    rows.push(['','','','Total Income','+'+inc.toFixed(2),'']);
-    rows.push(['','','','Total Expense','-'+exp.toFixed(2),'']);
-    rows.push(['','','','Net',(inc-exp>=0?'+':'')+(inc-exp).toFixed(2),'']);
-
-    const csv = rows.map(r => r.map(c => '"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
-    const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+    txns.forEach(t => rows.push([
+      t.date,
+      t.type === 'expense' ? 'Expense' : 'Income',
+      {spend:'Spend',reserve:'Reserve',growth:'Growth'}[t.account] || t.account,
+      t.category,
+      (t.type==='expense'?'-':'+')+Number(t.amount).toFixed(2),
+      t.note || ''
+    ]));
+    const exp = txns.filter(t=>t.type==='expense').reduce((s,t)=>s+Number(t.amount),0);
+    const inc = txns.filter(t=>t.type==='income').reduce((s,t)=>s+Number(t.amount),0);
+    rows.push([],['','','','Total Income','+'+inc.toFixed(2),''],['','','','Total Expense','-'+exp.toFixed(2),''],['','','','Net',(inc-exp>=0?'+':'')+(inc-exp).toFixed(2),'']);
+    const csv = rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
     const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'budget-' + mLabel.replace(' ','-') + '.csv';
+    a.href = URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'}));
+    a.download = 'budget-'+mLabel+'.csv';
     a.click();
   };
 
@@ -386,27 +420,18 @@
   function registerPWA() {
     try {
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#0f172a"/><text x="256" y="340" font-family="Arial,sans-serif" font-size="300" font-weight="700" fill="#22c55e" text-anchor="middle">$</text></svg>`;
-      const manifest = { name:'记账本', short_name:'记账本', start_url:'.', display:'standalone', background_color:'#0f172a', theme_color:'#0f172a', icons:[{src:'data:image/svg+xml,'+encodeURIComponent(svg),sizes:'512x512',type:'image/svg+xml'}] };
+      const manifest = {name:'记账本',short_name:'记账本',start_url:'.',display:'standalone',background_color:'#0f172a',theme_color:'#0f172a',icons:[{src:'data:image/svg+xml,'+encodeURIComponent(svg),sizes:'512x512',type:'image/svg+xml'}]};
       const link = document.createElement('link');
       link.rel = 'manifest';
       link.href = URL.createObjectURL(new Blob([JSON.stringify(manifest)],{type:'application/json'}));
       document.head.appendChild(link);
     } catch(e) {}
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        try {
-          const sw = "self.addEventListener('install',e=>{self.skipWaiting();});self.addEventListener('activate',e=>{e.waitUntil(self.clients.claim());});self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).catch(()=>caches.match(e.request)));});";
-          navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw],{type:'text/javascript'}))).catch(()=>{});
-        } catch(e) {}
-      });
-    }
   }
 
-  // init date input to today
   const today = new Date();
   document.getElementById('dateInput').value = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
-
-  load(); renderHeader(); populateCats(); renderAll(); registerPWA();
+  renderHeader(); populateCats(); renderMonthLabel(); registerPWA();
+  loadAll();
 })();
 </script>
 </body>
