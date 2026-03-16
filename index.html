@@ -10,125 +10,124 @@
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
     body { min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "PingFang SC", "Microsoft YaHei", sans-serif; background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%); color: var(--text-main); display: flex; justify-content: center; }
     .app { width: 100%; max-width: 480px; padding: 16px 16px 48px; display: flex; flex-direction: column; gap: 14px; }
-    .header { display: flex; justify-content: space-between; align-items: flex-start; padding: 4px 2px; }
+
+    .header { padding: 4px 2px; }
     .title { font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
     .pill { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: rgba(15,23,42,0.9); border: 1px solid rgba(148,163,184,0.25); color: var(--text-sub); }
     .today { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
+
     .card { background: radial-gradient(circle at top left, #111827 0, #020617 55%); border-radius: var(--radius-lg); padding: 16px; border: 1px solid rgba(31,41,55,0.9); }
     .section-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--text-main); display: flex; justify-content: space-between; align-items: center; }
+
+    /* 总资产 */
+    .total-assets { font-size: 11px; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .total-value { font-size: 36px; font-weight: 700; color: var(--text-main); margin-bottom: 16px; }
+
+    /* 三账户 */
     .accounts-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-    .account-card { background: rgba(15,23,42,0.9); border-radius: var(--radius-md); padding: 12px 10px; display: flex; flex-direction: column; gap: 6px; }
+    .account-card { background: rgba(15,23,42,0.9); border-radius: var(--radius-md); padding: 12px 10px; display: flex; flex-direction: column; gap: 5px; cursor: pointer; transition: opacity 0.15s; }
+    .account-card:active { opacity: 0.7; }
     .account-card.spend  { border: 1px solid rgba(248,113,113,0.5); }
     .account-card.reserve { border: 1px solid rgba(96,165,250,0.5); }
     .account-card.growth { border: 1px solid rgba(34,197,94,0.5); }
-    .account-label { font-size: 11px; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.06em; }
-    .account-amount { font-size: 17px; font-weight: 700; min-height: 24px; }
+    .account-label { font-size: 10px; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.06em; }
+    .account-amount { font-size: 16px; font-weight: 700; min-height: 22px; }
     .account-card.spend .account-amount { color: #fb7185; }
     .account-card.reserve .account-amount { color: #60a5fa; }
     .account-card.growth .account-amount { color: #4ade80; }
-    .edit-btn { font-size: 11px; color: var(--text-sub); background: transparent; border: 1px solid rgba(148,163,184,0.3); border-radius: 999px; padding: 2px 8px; cursor: pointer; align-self: flex-start; }
-    .summary-row { display: flex; gap: 10px; }
-    .chip { flex: 1; border-radius: 999px; background: rgba(15,23,42,0.9); padding: 8px 12px; display: flex; flex-direction: column; gap: 2px; }
-    .chip.-income { border: 1px solid rgba(45,212,191,0.6); }
-    .chip.-expense { border: 1px solid rgba(248,113,113,0.6); }
-    .chip-label { font-size: 11px; color: var(--text-sub); }
-    .chip-value { font-size: 15px; font-weight: 700; }
-    .chip-value.-pos { color: #4ade80; }
-    .chip-value.-neg { color: #fb7185; }
-    .net-value { font-size: 28px; font-weight: 700; margin: 6px 0 10px; }
-    .budget-bar-bg { width: 100%; height: 8px; border-radius: 999px; background: rgba(15,23,42,1); overflow: hidden; border: 1px solid rgba(31,41,55,1); }
-    .budget-bar-fill { height: 100%; border-radius: inherit; transition: width 0.4s; }
-    .budget-info { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-sub); margin-top: 4px; }
+    .account-delta { font-size: 10px; }
+    .account-delta.neg { color: #fb7185; }
+    .account-delta.pos { color: #4ade80; }
+    .account-delta.zero { color: var(--text-sub); }
+    .edit-btn { font-size: 10px; color: var(--text-sub); background: transparent; border: 1px solid rgba(148,163,184,0.25); border-radius: 999px; padding: 2px 7px; cursor: pointer; align-self: flex-start; margin-top: 2px; }
+
+    /* month nav */
     .month-nav { display: flex; align-items: center; gap: 6px; }
     .nav-btn { background: transparent; border: 1px solid rgba(148,163,184,0.3); border-radius: 999px; color: var(--text-sub); font-size: 16px; width: 26px; height: 26px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+    /* form */
     .tab-group { display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(17,24,39,0.85); border: 1px solid rgba(55,65,81,1); gap: 3px; }
     .tab { border-radius: 999px; padding: 4px 12px; font-size: 12px; border: none; background: transparent; color: var(--text-sub); cursor: pointer; }
     .tab.-active { background: linear-gradient(135deg,#22c55e,#4ade80); color: #022c22; font-weight: 600; }
-    .form-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 10px; margin-bottom: 8px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+    .form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px; }
     .form-row { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
     label { font-size: 12px; color: var(--text-sub); }
-    input[type="number"], select, input[type="text"] { width: 100%; border-radius: 999px; border: 1px solid var(--border); padding: 9px 14px; font-size: 13px; outline: none; color: var(--text-main); background: rgba(2,6,23,0.9); }
+    input[type="number"], input[type="text"], input[type="date"], select {
+      width: 100%; border-radius: 999px; border: 1px solid var(--border); padding: 9px 14px; font-size: 13px; outline: none; color: var(--text-main); background: rgba(2,6,23,0.9);
+    }
     input[type="text"] { border-radius: 12px; }
+    input[type="date"] { border-radius: 12px; color-scheme: dark; }
     input::placeholder { color: #4b5563; }
     input:focus, select:focus { border-color: rgba(34,197,94,0.9); }
     select { appearance: none; background-image: linear-gradient(45deg,transparent 50%,#6b7280 50%), linear-gradient(135deg,#6b7280 50%,transparent 50%); background-position: calc(100% - 14px) 12px, calc(100% - 10px) 12px; background-size: 4px 4px; background-repeat: no-repeat; background-color: rgba(2,6,23,0.9); }
     .btn-primary { width: 100%; border-radius: 999px; border: none; padding: 11px 14px; font-size: 15px; font-weight: 600; background: linear-gradient(135deg,#22c55e,#4ade80); color: #022c22; cursor: pointer; margin-top: 4px; }
     .btn-primary:active { transform: scale(0.98); }
-    .txn-list { display: flex; flex-direction: column; gap: 8px; max-height: 360px; overflow-y: auto; padding-right: 2px; }
+
+    /* txn list */
+    .txn-list { display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto; padding-right: 2px; }
     .txn-list::-webkit-scrollbar { width: 4px; }
     .txn-list::-webkit-scrollbar-thumb { background: rgba(55,65,81,0.8); border-radius: 999px; }
-    .txn-item { display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; background: rgba(15,23,42,0.9); border: 1px solid rgba(31,41,55,1); border-radius: 12px; }
-    .txn-left { display: flex; flex-direction: column; gap: 2px; }
-    .badge { padding: 2px 8px; border-radius: 999px; font-size: 10px; border: 1px solid; display: inline-block; margin-bottom: 2px; }
+    .txn-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: rgba(15,23,42,0.9); border: 1px solid rgba(31,41,55,1); border-radius: 12px; gap: 8px; }
+    .txn-left { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+    .txn-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    .badge { padding: 2px 8px; border-radius: 999px; font-size: 10px; border: 1px solid; display: inline-block; white-space: nowrap; }
     .badge.-expense { border-color: rgba(248,113,113,0.8); color: #fecaca; }
     .badge.-income { border-color: rgba(45,212,191,0.8); color: #a7f3d0; }
-    .txn-note { font-size: 13px; color: var(--text-main); }
+    .badge.-spend { border-color: rgba(248,113,113,0.4); color: #fb7185; }
+    .badge.-reserve { border-color: rgba(96,165,250,0.4); color: #60a5fa; }
+    .badge.-growth { border-color: rgba(34,197,94,0.4); color: #4ade80; }
+    .txn-note { font-size: 13px; color: var(--text-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .txn-date { font-size: 11px; color: var(--text-sub); }
-    .txn-amount { font-size: 14px; font-weight: 700; text-align: right; }
+    .txn-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .txn-amount { font-size: 14px; font-weight: 700; white-space: nowrap; }
     .txn-amount.-expense { color: #fb7185; }
     .txn-amount.-income { color: #4ade80; }
+    .del-btn { font-size: 10px; color: #4b5563; background: transparent; border: none; cursor: pointer; padding: 0; }
+    .del-btn:hover { color: #fb7185; }
     .empty { font-size: 13px; color: var(--text-sub); text-align: center; padding: 16px 0; }
+
+    /* export */
+    .export-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; border-radius: 999px; border: 1px solid rgba(148,163,184,0.3); padding: 9px 14px; font-size: 13px; font-weight: 500; color: var(--text-sub); background: transparent; cursor: pointer; margin-top: 12px; }
+    .export-btn:active { background: rgba(255,255,255,0.05); }
+
     .footer { margin-top: 8px; font-size: 10px; text-align: center; color: #4b5563; }
   </style>
 </head>
 <body>
 <div class="app">
   <header class="header">
-    <div>
-      <div class="title">记账本 <span class="pill">本地保存</span></div>
-      <div class="today" id="todayText"></div>
-    </div>
+    <div class="title">记账本 <span class="pill">本地保存</span></div>
+    <div class="today" id="todayText"></div>
   </header>
 
+  <!-- 总资产 + 三账户 -->
   <section class="card">
-    <div class="section-title">账户余额</div>
+    <div class="total-assets">Total Assets</div>
+    <div class="total-value" id="totalAssets">—</div>
     <div class="accounts-grid">
       <div class="account-card spend">
         <div class="account-label">Spend</div>
         <div class="account-amount" id="amt-spend">—</div>
-        <button class="edit-btn" onclick="editAccount('spend')">更新</button>
+        <div class="account-delta zero" id="delta-spend">本月 $0</div>
+        <button class="edit-btn" onclick="editAccount('spend')">手动更新</button>
       </div>
       <div class="account-card reserve">
         <div class="account-label">Reserve</div>
         <div class="account-amount" id="amt-reserve">—</div>
-        <button class="edit-btn" onclick="editAccount('reserve')">更新</button>
+        <div class="account-delta zero" id="delta-reserve">本月 $0</div>
+        <button class="edit-btn" onclick="editAccount('reserve')">手动更新</button>
       </div>
       <div class="account-card growth">
         <div class="account-label">Growth</div>
         <div class="account-amount" id="amt-growth">—</div>
-        <button class="edit-btn" onclick="editAccount('growth')">更新</button>
+        <div class="account-delta zero" id="delta-growth">本月 $0</div>
+        <button class="edit-btn" onclick="editAccount('growth')">手动更新</button>
       </div>
     </div>
   </section>
 
-  <section class="card">
-    <div class="section-title">
-      <span id="monthLabel"></span>
-      <div class="month-nav">
-        <button class="nav-btn" onclick="changeMonth(-1)">‹</button>
-        <button class="nav-btn" onclick="changeMonth(1)">›</button>
-      </div>
-    </div>
-    <div class="net-value" id="netValue">$0.00</div>
-    <div class="summary-row">
-      <div class="chip -income">
-        <span class="chip-label">收入</span>
-        <span class="chip-value -pos" id="incomeValue">+$0.00</span>
-      </div>
-      <div class="chip -expense">
-        <span class="chip-label">支出</span>
-        <span class="chip-value -neg" id="expenseValue">-$0.00</span>
-      </div>
-    </div>
-    <div style="margin-top:12px;">
-      <div class="budget-bar-bg"><div class="budget-bar-fill" id="budgetBar" style="width:0%"></div></div>
-      <div class="budget-info">
-        <span id="budgetUsed">已用 $0</span>
-        <span id="budgetLeft">剩余 $3000</span>
-      </div>
-    </div>
-  </section>
-
+  <!-- 记一笔 -->
   <section class="card">
     <div class="section-title">
       <span>记一笔</span>
@@ -140,23 +139,45 @@
     <div class="form-grid">
       <div class="form-row">
         <label>金额 ($)</label>
-        <input type="number" id="amountInput" step="0.01" min="0" inputmode="decimal" placeholder="58.00" />
+        <input type="number" id="amountInput" step="0.01" min="0" inputmode="decimal" placeholder="0.00" />
       </div>
+      <div class="form-row">
+        <label>日期</label>
+        <input type="date" id="dateInput" />
+      </div>
+    </div>
+    <div class="form-grid">
       <div class="form-row">
         <label>分类</label>
         <select id="categorySelect"></select>
       </div>
+      <div class="form-row">
+        <label id="accountLabel">从哪个账户</label>
+        <select id="accountSelect">
+          <option value="spend">Spend</option>
+          <option value="reserve">Reserve</option>
+          <option value="growth">Growth</option>
+        </select>
+      </div>
     </div>
     <div class="form-row">
       <label>备注（可选）</label>
-      <input type="text" id="noteInput" maxlength="40" placeholder="午餐 / 地铁 / 电影票…" />
+      <input type="text" id="noteInput" maxlength="40" placeholder="午餐 / 房租 / 工资…" />
     </div>
     <button class="btn-primary" onclick="addEntry()">保存记录</button>
   </section>
 
+  <!-- 月度账单 -->
   <section class="card">
-    <div class="section-title">明细账单 <span id="txnCount" style="font-size:12px;color:var(--text-sub);font-weight:400;"></span></div>
+    <div class="section-title">
+      <span id="monthLabel"></span>
+      <div class="month-nav">
+        <button class="nav-btn" onclick="changeMonth(-1)">‹</button>
+        <button class="nav-btn" onclick="changeMonth(1)">›</button>
+      </div>
+    </div>
     <div class="txn-list" id="txnList"></div>
+    <button class="export-btn" onclick="exportCSV()">↓ 导出本月账单 (.csv)</button>
   </section>
 
   <footer class="footer">数据仅保存在本机浏览器 · 可离线使用</footer>
@@ -164,10 +185,9 @@
 
 <script>
 (function() {
-  const KEY = 'budget-app-v3';
-  const BUDGET = 3000;
-  const EXPENSE_CATS = ['餐饮','交通','娱乐','购物','医疗','学习','订阅','其他'];
-  const INCOME_CATS = ['工资','报销','其他'];
+  const KEY = 'budget-app-v4';
+  const EXPENSE_CATS = ['餐饮','交通','娱乐','购物','医疗','学习','订阅','房租','转账','其他'];
+  const INCOME_CATS = ['工资','报销','转入','其他'];
   let state = { accounts: { spend: null, reserve: null, growth: null }, transactions: [] };
   let currentType = 'expense';
   let viewDate = new Date();
@@ -179,6 +199,11 @@
     if (n === null || n === undefined) return '—';
     return '$' + Number(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
   }
+  function fmtDelta(n) {
+    if (!n) return '本月 $0';
+    const abs = '$' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+    return n > 0 ? '本月 +' + abs : '本月 -' + abs;
+  }
 
   function renderHeader() {
     const d = new Date();
@@ -187,16 +212,36 @@
       d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日 · 周'+days[d.getDay()];
   }
 
-  function renderAccounts() {
-    ['spend','reserve','growth'].forEach(k => {
-      document.getElementById('amt-'+k).textContent = fmt(state.accounts[k]);
+  function getMonthDeltas(mk) {
+    const deltas = { spend: 0, reserve: 0, growth: 0 };
+    state.transactions.filter(t => t.date && t.date.startsWith(mk)).forEach(t => {
+      if (!deltas.hasOwnProperty(t.account)) return;
+      deltas[t.account] += t.type === 'income' ? t.amount : -t.amount;
     });
+    return deltas;
+  }
+
+  function renderAccounts() {
+    const mk = monthKey(new Date());
+    const deltas = getMonthDeltas(mk);
+    let total = 0;
+    ['spend','reserve','growth'].forEach(k => {
+      const amt = state.accounts[k];
+      document.getElementById('amt-'+k).textContent = fmt(amt);
+      if (amt !== null && amt !== undefined) total += amt;
+      const d = deltas[k];
+      const el = document.getElementById('delta-'+k);
+      el.textContent = fmtDelta(d);
+      el.className = 'account-delta ' + (d > 0 ? 'pos' : d < 0 ? 'neg' : 'zero');
+    });
+    const allSet = ['spend','reserve','growth'].every(k => state.accounts[k] !== null && state.accounts[k] !== undefined);
+    document.getElementById('totalAssets').textContent = allSet ? fmt(total) : '—';
   }
 
   window.editAccount = function(key) {
     const cur = state.accounts[key];
     const label = {spend:'Spend',reserve:'Reserve',growth:'Growth'}[key];
-    const val = prompt(label + ' 账户当前余额 ($)', cur !== null && cur !== undefined ? cur : '');
+    const val = prompt(label + ' 账户余额 ($)\n（手动更新，不影响交易记录）', cur !== null && cur !== undefined ? cur : '');
     if (val === null) return;
     const n = parseFloat(val.replace(/,/g,''));
     if (!isFinite(n)) { alert('请输入有效数字'); return; }
@@ -210,67 +255,124 @@
     return state.transactions.filter(t => t.date && t.date.startsWith(key));
   }
 
-  function renderSummary() {
-    const txns = getMonthTxns();
-    const income = txns.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
-    const expense = txns.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
-    const net = income - expense;
+  function renderMonthLabel() {
     const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-    document.getElementById('monthLabel').textContent = viewDate.getFullYear() + ' · ' + months[viewDate.getMonth()];
-    document.getElementById('netValue').textContent = fmt(net);
-    document.getElementById('incomeValue').textContent = '+' + fmt(income);
-    document.getElementById('expenseValue').textContent = '-' + fmt(expense);
-    const pct = Math.min(expense / BUDGET * 100, 120);
-    const bar = document.getElementById('budgetBar');
-    bar.style.width = pct.toFixed(1) + '%';
-    bar.style.background = pct > 100 ? 'linear-gradient(90deg,#f97373,#fb923c)' : pct > 75 ? 'linear-gradient(90deg,#fbbf24,#f97316)' : 'linear-gradient(90deg,#22c55e,#4ade80)';
-    document.getElementById('budgetUsed').textContent = '已用 ' + fmt(expense);
-    document.getElementById('budgetLeft').textContent = expense <= BUDGET ? '剩余 ' + fmt(BUDGET - expense) : '超出 ' + fmt(expense - BUDGET);
+    document.getElementById('monthLabel').textContent = viewDate.getFullYear() + ' · ' + months[viewDate.getMonth()] + ' 账单';
   }
 
   function renderTxns() {
     const txns = getMonthTxns().slice().sort((a,b) => b.date.localeCompare(a.date));
     const list = document.getElementById('txnList');
-    document.getElementById('txnCount').textContent = txns.length ? txns.length + ' 条' : '';
     if (!txns.length) { list.innerHTML = '<div class="empty">本月暂无记录</div>'; return; }
     list.innerHTML = txns.map(t => {
-      const d = new Date(t.date);
-      const dateStr = (d.getMonth()+1) + '/' + d.getDate() + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+      const dateStr = t.date.slice(0,10);
       const sign = t.type === 'income' ? '+' : '-';
+      const accLabel = {spend:'Spend',reserve:'Reserve',growth:'Growth'}[t.account] || t.account;
       return `<div class="txn-item">
         <div class="txn-left">
-          <span class="badge -${t.type}">${t.type==='expense'?'支出':'收入'} · ${t.category}</span>
+          <div class="txn-tags">
+            <span class="badge -${t.type}">${t.type==='expense'?'支出':'收入'}</span>
+            <span class="badge -${t.account}">${accLabel}</span>
+            <span class="badge" style="border-color:rgba(148,163,184,0.3);color:var(--text-sub);">${t.category}</span>
+          </div>
           <div class="txn-note">${t.note || '无备注'}</div>
           <div class="txn-date">${dateStr}</div>
         </div>
-        <div class="txn-amount -${t.type}">${sign}${fmt(t.amount)}</div>
+        <div class="txn-right">
+          <div class="txn-amount -${t.type}">${sign}${fmt(t.amount)}</div>
+          <button class="del-btn" onclick="deleteEntry('${t.id}')">删除</button>
+        </div>
       </div>`;
     }).join('');
   }
 
-  function renderAll() { renderAccounts(); renderSummary(); renderTxns(); }
+  function renderAll() { renderAccounts(); renderMonthLabel(); renderTxns(); }
 
   function populateCats() {
     const cats = currentType === 'expense' ? EXPENSE_CATS : INCOME_CATS;
     document.getElementById('categorySelect').innerHTML = cats.map(c => `<option value="${c}">${c}</option>`).join('');
+    document.getElementById('accountLabel').textContent = currentType === 'expense' ? '从哪个账户' : '存入哪个账户';
   }
 
   window.changeMonth = function(dir) {
     viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + dir, 1);
-    renderSummary(); renderTxns();
+    renderMonthLabel(); renderTxns();
   };
 
   window.addEntry = function() {
     const amt = parseFloat(document.getElementById('amountInput').value);
     if (!isFinite(amt) || amt <= 0) { alert('请输入大于0的金额'); return; }
+    const dateVal = document.getElementById('dateInput').value;
+    if (!dateVal) { alert('请选择日期'); return; }
     const cat = document.getElementById('categorySelect').value;
+    const account = document.getElementById('accountSelect').value;
     const note = document.getElementById('noteInput').value.trim();
-    state.transactions.push({ id: Date.now().toString(36), type: currentType, amount: amt, category: cat, note, date: new Date().toISOString() });
+
+    // update account balance
+    if (state.accounts[account] !== null && state.accounts[account] !== undefined) {
+      state.accounts[account] += currentType === 'income' ? amt : -amt;
+    }
+
+    state.transactions.push({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2,5),
+      type: currentType,
+      amount: amt,
+      category: cat,
+      account,
+      note,
+      date: dateVal
+    });
     save();
     document.getElementById('amountInput').value = '';
     document.getElementById('noteInput').value = '';
     viewDate = new Date();
     renderAll();
+  };
+
+  window.deleteEntry = function(id) {
+    if (!confirm('删除这条记录？')) return;
+    const t = state.transactions.find(x => x.id === id);
+    if (t) {
+      // reverse account effect
+      if (state.accounts[t.account] !== null && state.accounts[t.account] !== undefined) {
+        state.accounts[t.account] += t.type === 'income' ? -t.amount : t.amount;
+      }
+      state.transactions = state.transactions.filter(x => x.id !== id);
+      save();
+      renderAll();
+    }
+  };
+
+  window.exportCSV = function() {
+    const txns = getMonthTxns().slice().sort((a,b) => a.date.localeCompare(b.date));
+    if (!txns.length) { alert('本月暂无记录'); return; }
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const mLabel = months[viewDate.getMonth()] + ' ' + viewDate.getFullYear();
+    const rows = [['Date','Type','Account','Category','Amount','Note']];
+    txns.forEach(t => {
+      rows.push([
+        t.date,
+        t.type === 'expense' ? 'Expense' : 'Income',
+        {spend:'Spend',reserve:'Reserve',growth:'Growth'}[t.account] || t.account,
+        t.category,
+        (t.type === 'expense' ? '-' : '+') + t.amount.toFixed(2),
+        t.note || ''
+      ]);
+    });
+    // summary rows
+    const exp = txns.filter(t=>t.type==='expense').reduce((s,t)=>s+t.amount,0);
+    const inc = txns.filter(t=>t.type==='income').reduce((s,t)=>s+t.amount,0);
+    rows.push([]);
+    rows.push(['','','','Total Income','+'+inc.toFixed(2),'']);
+    rows.push(['','','','Total Expense','-'+exp.toFixed(2),'']);
+    rows.push(['','','','Net',(inc-exp>=0?'+':'')+(inc-exp).toFixed(2),'']);
+
+    const csv = rows.map(r => r.map(c => '"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
+    const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'budget-' + mLabel.replace(' ','-') + '.csv';
+    a.click();
   };
 
   document.getElementById('typeTabs').addEventListener('click', e => {
@@ -299,6 +401,10 @@
       });
     }
   }
+
+  // init date input to today
+  const today = new Date();
+  document.getElementById('dateInput').value = today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
 
   load(); renderHeader(); populateCats(); renderAll(); registerPWA();
 })();
